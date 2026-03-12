@@ -1,0 +1,24 @@
+[Aggregator] journal payments-prod-02: failed to GET data
+
+━━ Hierarchy tree ━━
+{'org': {'environments': {'production': {'subnet-auth': ['auth-prod-01',
+                                                         'auth-prod-02'],
+                                         'subnet-payments': ['payments-prod-01',
+                                                             'payments-prod-02']}},
+         'name': 'demo'}}
+
+━━ Group membership by subnet ━━
+{'subnet-auth': ['auth-prod-01', 'auth-prod-02'],
+ 'subnet-payments': ['payments-prod-01', 'payments-prod-02']}
+
+━━ Pooling weights/statistics ━━
+subnet-payments:payments-prod-01 pooling_weight=0.50, group_mean=0.000, group_var=1.0000
+subnet-payments:payments-prod-02 pooling_weight=0.50, group_mean=0.000, group_var=1.0000
+subnet-auth:auth-prod-01 pooling_weight=0.50, group_mean=0.000, group_var=1.0000
+subnet-auth:auth-prod-02 pooling_weight=0.50, group_mean=0.000, group_var=1.0000
+                       auth-prod-01      auth-prod-02  payments-prod-01  payments-prod-02
+-----------------------------------------------------------------------------------------
+subnet-payments                   0                 0                 1                 1
+subnet-auth                       1                 1                 0                 0
+
+All hierarchy L1 tests passed!

@@ -1,0 +1,92 @@
+connectors:
+  - id: mock_prometheus
+    url: http://localhost:8001
+    source_type: prometheus
+    entities:
+      - id: payments-prod-01
+        metadata:
+          host: payments-prod-01
+          subnet: subnet-payments
+          environment: production
+          org: acme-corp
+        config:
+          baseline_cpu: 0.35
+          baseline_memory: 0.50
+          failure_class: cpu_overload
+          failure_start_offset: 7200
+          precursor_window: 3600
+
+      - id: payments-prod-02
+        metadata:
+          host: payments-prod-02
+          subnet: subnet-payments
+          environment: production
+          org: acme-corp
+        config:
+          baseline_cpu: 0.28
+          baseline_memory: 0.42
+
+      - id: auth-prod-01
+        metadata:
+          host: auth-prod-01
+          subnet: subnet-auth
+          environment: production
+          org: acme-corp
+        config:
+          baseline_cpu: 0.40
+          baseline_memory: 0.60
+          failure_class: memory_exhaustion
+          failure_start_offset: 9000
+          precursor_window: 2400
+
+      - id: auth-prod-02
+        metadata:
+          host: auth-prod-02
+          subnet: subnet-auth
+          environment: production
+          org: acme-corp
+        config:
+          baseline_cpu: 0.22
+          baseline_memory: 0.38
+
+  - id: mock_journal
+    url: http://localhost:8002
+    source_type: journal
+    entities:
+      - id: payments-prod-01
+        metadata:
+          host: payments-prod-01
+          subnet: subnet-payments
+          environment: production
+          org: acme-corp
+        config:
+          failure_class: cpu_overload
+          failure_start_offset: 7200
+          precursor_window: 3600
+
+      - id: payments-prod-02
+        metadata:
+          host: payments-prod-02
+          subnet: subnet-payments
+          environment: production
+          org: acme-corp
+
+      - id: auth-prod-01
+        metadata:
+          host: auth-prod-01
+          subnet: subnet-auth
+          environment: production
+          org: acme-corp
+        config:
+          failure_class: memory_exhaustion
+          failure_start_offset: 9000
+          precursor_window: 2400
+
+      - id: auth-prod-02
+        metadata:
+          host: auth-prod-02
+          subnet: subnet-auth
+          environment: production
+          org: acme-corp
+
+  # ... (keep any other connectors as needed for demo, unchanged)
