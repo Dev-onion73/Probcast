@@ -231,7 +231,7 @@ Probcast/
 ## Development & Extension
 
 - To add new connectors: inherit from `connectors/base_server.py`, implement a FastAPI service, add to `config/connectors.yaml`.
-- To add new failure signatures: extend labelling functions in `labelling/functions.py` (see [PROBCAST_IMPLEMENTATION_GUIDE.md](./PROBCAST_IMPLEMENTATION_GUIDE.md#12-failure-classes-reference)).
+- To add new failure signatures: extend labelling functions in `labelling/functions.py`.
 - To adapt for real data: swap mock connector implementations for wrappers around actual APIs (see guide Section 14).
 - For full probabilistic modeling: feed labeled windows to a Pyro training script (L4/L5 not contained in this repo).
 
