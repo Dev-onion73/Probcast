@@ -66,18 +66,6 @@ cp .env.example .env   # Edit as needed for custom ports/entities
 
 ---
 
-## Step 0: Initial Setup
-
-Clone the repo and install all dependencies in a virtual environment.
-
-```bash
-git clone <repo-url>
-cd probcast
-python3 -m venv venv
-source venv/bin/activate           # (Windows: venv\Scripts\activate)
-pip install -r requirements.txt
-```
-
 ## Step 1: Start the Connector Servers
 
 setup .env file as follows
