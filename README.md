@@ -49,12 +49,46 @@ cd Probcast
 python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
-cp .env.example .env
+cp .env.example .env   # Edit as needed for custom ports/entities
 ```
 
-### 2. **Start All Connector Servers**
+---
 
-In one terminal:
+## Project Structure
+
+- `config/connectors.yaml` – registry of all telemetry connectors/entities
+- `connectors/` – independent FastAPI servers (Prometheus, journald, CloudWatch, SIEM, etc)
+- `ingestion/` – polling, normalization, storage of synchronized streams per entity
+- `hierarchy/` – dynamic inference and aggregation matrix logic
+- `labelling/` – Drain3 mining, labeling functions, labeling pipeline
+- `models/` – model code for probabilistic (Pyro) learning and inference
+- `data/labeled/` – output: labeled event windows, per entity, as JSONL
+
+---
+
+## Step 0: Initial Setup
+
+Clone the repo and install all dependencies in a virtual environment.
+
+```bash
+git clone <repo-url>
+cd probcast
+python3 -m venv venv
+source venv/bin/activate           # (Windows: venv\Scripts\activate)
+pip install -r requirements.txt
+```
+
+## Step 1: Start the Connector Servers
+
+setup .env file as follows
+
+```bash
+MOCK_PROMETHEUS_PORT=8001
+POLL_INTERVAL=60
+```
+
+_Open a new terminal._
+
 ```bash
 bash demo/run_connectors.sh
 ```
@@ -72,152 +106,48 @@ _Open a new terminal._
 python demo/run_demo.py
 ```
 
-Labeled output files appear in `data/labeled/*.jsonl` for each eligible entity.
+- The demo script will:
+    - Check each connector for health
+    - Aggregate and align resource and journal streams per entity
+    - Infer hierarchy and groupings
+    - Apply programmable labeling functions to detect failure classes
+    - Write labeled event windows in `data/labeled/` for each entity
+
+- Live, color-coded console output shows resource/journal record counts, hierarchy, labels, and window status for each entity.
 
 ---
 
-## Directory Structure
+## Step 3: Model Training and Inference
 
-```text
-Probcast/
-├── config/
-│   └── connectors.yaml         # Registry of all connectors/entities
-├── connectors/                 # Mock and (optionally real) data sources
-│   ├── mock_prometheus.py
-│   ├── mock_journal.py
-│   ├── mock_cloudwatch.py
-│   ├── mock_siem.py
-│   └── real_prometheus.py
-├── ingestion/                  # L0: Normalization/aggregator logic
-│   ├── aggregator.py
-│   ├── normalizer.py
-│   ├── schema.py
-│   └── store.py
-├── hierarchy/                  # L1: Hierarchy graph, pooling, S matrix
-│   ├── encoder.py
-│   ├── matrix.py
-│   └── pooling.py
-├── labelling/                  # L2: Template mining, labelling, output
-│   ├── template_miner.py
-│   ├── functions.py
-│   ├── pipeline.py
-│   └── output.py
-├── demo/
-│   ├── run_connectors.sh
-│   └── run_demo.py
-├── data/
-│   └── labeled/                # L2 output files
-├── requirements.txt
-├── .env.example
-├── README.md
-└── PROBCAST_IMPLEMENTATION_GUIDE.md
+Once labeled data exist (`data/labeled/*.jsonl`), you can run model training and batch or real-time probabilistic inference.
+
+```bash
+python models/_probcast_dual_model_fusion_Version1.py
 ```
 
----
 
-## Protocol Layers
-
-| Layer | Purpose |
-|-------|---------|
-| L0    | Ingests, normalizes, aligns streams from all connectors. Enforces dual-stream contract per entity. |
-| L1    | Dynamically infers entity hierarchy, constructs sparse aggregation matrix, computes pooling weights for each group. |
-| L2    | Applies Drain template mining to logs and programmatic labeling rules. Emits a model-ready labeled dataset. |
-| L3    | (Optional) Synthetic dataset builder for large-scale or augmentation testing (see docs). |
-| L4+   | Probabilistic models for risk inference (not included in the repo). |
+- The model will auto-discover labeled JSONL events, train the full L4/L5 path, and run model inference for all windows/entities.
+- Model artifacts and predictions are output to `models/` and/or `data/`.
 
 ---
 
-## Usage: Demo Pipeline
+## Expected Outputs
 
-**Connector and Source Registry:**  
-- All connectors and their entities are registered in `config/connectors.yaml`.  
-- To add a new (mock or real) data source, implement as a FastAPI server, add to registry.
-
-**Entity Metadata:**  
-- Each entity (host/service) must provide both a metric and a log stream.  
-- Metadata needed: `host`, `subnet`, `environment`, `org`.
-
-**Pipeline Execution:**  
-1. Run connectors (simulated or real).
-2. Start the demo pipeline (`run_demo.py`), which:
-   - Checks all connectors.
-   - Polls all eligible entities for resource and log events.
-   - Normalizes and aligns streams.
-   - Infers groupings, computes pooling.
-   - Labels failure class and anchor for each window.
-   - Writes output to `data/labeled/*.jsonl`.
-
-**Analysis & Model Training:**  
-- Use the labeled JSONL files for experimentation, model fitting in Pyro or PyTorch, or as a basis for synthetic batch generation.
+- **Labeled events**: `data/labeled/<entity_id>_*.jsonl` for each entity, each window
+- **Console output**: resource & log record counts, group info, labels, pool context for each window
+- **Model predictions**: risk scores, class probabilities, and uncertainty for each window and entity
+- **Dashboard**: live tables of risk and trend plots by entity
 
 ---
 
-## Data Flow Example
+## Troubleshooting
 
-### L0: Entity telemetry (paired metric + log records)
-
-```json
-{
-  "entity_id": "payments-prod-01",
-  "resource_records": [ /* ...per-timestep metrics... */ ],
-  "journal_records":  [ /* ...events with time, level, message... */ ],
-  "metadata": {
-    "host":        "payments-prod-01",
-    "subnet":      "subnet-payments",
-    "environment": "production",
-    "org":         "acme-corp"
-  }
-}
-```
-
-### L1: Pooling context and aggregation matrix (pooled over e.g. subnet, env)
-
-```json
-{
-  "entity_id": "payments-prod-01",
-  "pool_context": {
-    "subnet_mean_cpu": 0.61,
-    "subnet_entity_count": 2,
-    "pooling_weight": 0.73
-  },
-  "hierarchy": {
-    "host": "payments-prod-01",
-    "subnet": "subnet-payments",
-    "environment": "production",
-    "org": "acme-corp"
-  }
-}
-```
-
-### L2: Labeled sample (model training window)
-
-```json
-{
-  "entity_id": "payments-prod-01",
-  "failure_class": "cpu_overload",
-  "failure_timestamp": 1741234567.0,
-  "window_start": 1741230967.0,
-  "window_end": 1741234567.0,
-  "hierarchy": { ... },
-  "pool_context": { ... },
-  "resource_series": { "cpu_usage": [0.74,0.86,...] },
-  "journal_series": [
-    {"offset_seconds": 0, "level": "CRITICAL", "unit": "kernel", "message": "CPU overload: ..."}
-  ],
-  "label": "cpu_overload",
-  "confidence": 1.0
-}
-```
+- If any connector shows as `[DOWN]` in status: check that all processes in `demo/run_connectors.sh` started successfully and do not conflict on ports.
+- If "Both streams: ✗" for an entity: ensure its mock connector is configured and running and is emitting both resource and journal streams.
+- If labeled events are missing or incomplete: check log output for failed labeling functions or missing resource/journal records.
+- To change entity topology, failure regimes, or baseline config for mock connectors, edit `config/connectors.yaml`.
 
 ---
 
-## Development & Extension
 
-- To add new connectors: inherit from `connectors/base_server.py`, implement a FastAPI service, add to `config/connectors.yaml`.
-- To add new failure signatures: extend labelling functions in `labelling/functions.py`.
-- To adapt for real data: swap mock connector implementations for wrappers around actual APIs (see guide Section 14).
-- For full probabilistic modeling: feed labeled windows to a Pyro training script (L4/L5 not contained in this repo).
-
----
-
-*For further questions and contributions, please raise an issue or submit a pull request!*
+**ProbCast:** End-to-end probabilistic failure forecasting on real (or mock) telemetry—infrastructure-scale, demo-ready.
