@@ -1,81 +1,52 @@
 import time
+import os
+import yaml
 from fastapi import FastAPI
 import uvicorn
-import os
+
 from connectors.noise import fbm_sample
 from ingestion.schema import SourceType, MetricType, ResourceRecord, EntityMeta
 
 app = FastAPI()
 
-ENTITY_LIST = [
-    {
-        "entity_id": "payments-prod-01",
-        "baseline_cpu": 0.35,
-        "baseline_memory": 0.50,
-        "metadata": {
-            "host": "payments-prod-01",
-            "subnet": "subnet-payments",
-            "environment": "production",
-            "org": "acme-corp"
-        }
-    },
-    {
-        "entity_id": "payments-prod-02",
-        "baseline_cpu": 0.28,
-        "baseline_memory": 0.42,
-        "metadata": {
-            "host": "payments-prod-02",
-            "subnet": "subnet-payments",
-            "environment": "production",
-            "org": "acme-corp"
-        }
-    },
-    {
-        "entity_id": "auth-prod-01",
-        "baseline_cpu": 0.40,
-        "baseline_memory": 0.60,
-        "metadata": {
-            "host": "auth-prod-01",
-            "subnet": "subnet-auth",
-            "environment": "production",
-            "org": "acme-corp"
-        }
-    },
-    {
-        "entity_id": "auth-prod-02",
-        "baseline_cpu": 0.22,
-        "baseline_memory": 0.38,
-        "metadata": {
-            "host": "auth-prod-02",
-            "subnet": "subnet-auth",
-            "environment": "production",
-            "org": "acme-corp"
-        }
-    }
-]
+def load_entity_list():
+    config_path = os.environ.get("CONNECTORS_CONFIG_PATH") or os.path.join(
+        os.path.dirname(os.path.abspath(__file__)), "..", "config", "connectors.yaml"
+    )
+    config_path = os.path.normpath(config_path)
+    with open(config_path) as f:
+        connectors = yaml.safe_load(f)["connectors"]
+    my_id = "mock_prometheus"
+    my_block = next(c for c in connectors if c["id"] == my_id)
+    return my_block["entities"]
+
+ENTITY_LIST = load_entity_list()
 
 @app.get("/health")
 async def health():
-    return {"status": "ok", "entity_ids": [e["entity_id"] for e in ENTITY_LIST]}
+    return {"status": "ok", "entity_ids": [e["id"] for e in ENTITY_LIST]}
 
 @app.get("/data")
 async def fetch_data(entity_id: str, start_ts: float, end_ts: float):
     print(f"[mock_prometheus] /data called: entity_id={entity_id}, start_ts={start_ts}, end_ts={end_ts}")
     points = []
-    entity = next((e for e in ENTITY_LIST if e["entity_id"] == entity_id), None)
+    entity = next((e for e in ENTITY_LIST if e["id"] == entity_id), None)
     if not entity:
         print("Entity not found. Returning []")
         return []
+    config = entity.get("config", {})  # robust: some entities may lack config
+    baseline_cpu = config.get("baseline_cpu", 0.3)
+    baseline_mem = config.get("baseline_memory", 0.4)
+    meta = EntityMeta(**entity["metadata"])
     # Limit number of returned points (protect against huge queries)
     MAX_POINTS = 120  # e.g., at most 2 hours at 1/min
     ts = start_ts
     points_generated = 0
     while ts <= end_ts and points_generated < MAX_POINTS:
-        cpu = fbm_sample(ts, scale=0.03, seed=hash(entity_id) % 10000) + entity["baseline_cpu"]
+        cpu = fbm_sample(ts, scale=0.03, seed=hash(entity_id) % 10000) + baseline_cpu
         cpu = max(0.0, min(1.0, cpu))
-        mem = fbm_sample(ts, scale=0.02, seed=(hash(entity_id)+1) % 10000) + entity["baseline_memory"]
+        mem = fbm_sample(ts, scale=0.02, seed=(hash(entity_id)+1) % 10000) + baseline_mem
         mem = max(0.0, min(1.0, mem))
-        meta = EntityMeta(**entity["metadata"])
         points.append(ResourceRecord(
             entity_id=entity_id,
             source=SourceType.PROMETHEUS,

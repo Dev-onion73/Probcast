@@ -15,3 +15,13 @@ REPORT-23BCE5062.pdf
 probcast.md
 PROBCAST_REPORT_humanized.md
 Data zipped.zip
+.dump
+ingestion/__pycache__/store.cpython-311.pyc
+labelling/__pycache__/functions.cpython-311.pyc
+models/__pycache__/_probcast_dual_model_fusion_Version1.cpython-311.pyc
+generator/__init__.py
+files.zip
+.dummy.py
+.gitignore
+demo_run_demo.py
+labelling/__pycache__/functions.cpython-311.pyc

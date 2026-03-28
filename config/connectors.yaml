@@ -12,9 +12,9 @@ connectors:
         config:
           baseline_cpu: 0.35
           baseline_memory: 0.50
-          failure_class: cpu_overload
-          failure_start_offset: 7200
-          precursor_window: 3600
+          failure_class: network_downtime
+          failure_start_offset: 10
+          precursor_window: 20
 
       - id: payments-prod-02
         metadata:
@@ -25,6 +25,9 @@ connectors:
         config:
           baseline_cpu: 0.28
           baseline_memory: 0.42
+          failure_class: dependency_timeout
+          failure_start_offset: 15
+          precursor_window: 25
 
       - id: auth-prod-01
         metadata:
@@ -36,8 +39,8 @@ connectors:
           baseline_cpu: 0.40
           baseline_memory: 0.60
           failure_class: memory_exhaustion
-          failure_start_offset: 9000
-          precursor_window: 2400
+          failure_start_offset: 30
+          precursor_window: 35
 
       - id: auth-prod-02
         metadata:
@@ -48,6 +51,22 @@ connectors:
         config:
           baseline_cpu: 0.22
           baseline_memory: 0.38
+          failure_class: service_crash
+          failure_start_offset: 5
+          precursor_window: 10
+
+      - id: session-prod-01
+        metadata:
+          host: session-prod-01
+          subnet: subnet-auth
+          environment: production
+          org: acme-corp
+        config:
+          baseline_cpu: 0.28
+          baseline_memory: 0.42
+          failure_class: cpu_overload
+          failure_start_offset: 10
+          precursor_window: 15
 
   - id: mock_journal
     url: http://localhost:8002
@@ -60,9 +79,9 @@ connectors:
           environment: production
           org: acme-corp
         config:
-          failure_class: cpu_overload
-          failure_start_offset: 7200
-          precursor_window: 3600
+          failure_class: network_downtime
+          failure_start_offset: 10
+          precursor_window: 20
 
       - id: payments-prod-02
         metadata:
@@ -70,6 +89,10 @@ connectors:
           subnet: subnet-payments
           environment: production
           org: acme-corp
+        config:
+          failure_class: dependency_timeout
+          failure_start_offset: 15
+          precursor_window: 25
 
       - id: auth-prod-01
         metadata:
@@ -78,9 +101,9 @@ connectors:
           environment: production
           org: acme-corp
         config:
-          failure_class: memory_exhaustion
-          failure_start_offset: 9000
-          precursor_window: 2400
+          failure_class: storage_failure
+          failure_start_offset: 30
+          precursor_window: 35
 
       - id: auth-prod-02
         metadata:
@@ -88,5 +111,22 @@ connectors:
           subnet: subnet-auth
           environment: production
           org: acme-corp
+        config:
+          failure_class: service_crash
+          failure_start_offset: 5
+          precursor_window: 10
+      
+      - id: session-prod-01
+        metadata:
+          host: session-prod-01
+          subnet: subnet-auth
+          environment: production
+          org: acme-corp
+        config:
+          failure_class: cpu_overload
+          failure_start_offset: 10
+          precursor_window: 15
+      
+
 
   # ... (keep any other connectors as needed for demo, unchanged)
