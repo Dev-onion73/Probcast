@@ -167,4 +167,3 @@ python dashboard.py
 ---
 
 If you have issues, check logs for errors, verify configuration in `config/connectors.yaml`, and make sure all servers are running as expected!
-```
