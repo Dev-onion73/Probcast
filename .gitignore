@@ -55,3 +55,6 @@ models/__pycache__/export_deep_poisson.cpython-311.pyc
 models/__pycache__/export_hierarchical_pyro.cpython-311.pyc
 models/__pycache__/hierarchical_pyro.cpython-311.pyc
 models/__pycache__/hierarchical.cpython-311.pyc
+outputs/latest_status.json
+outputs/latest_preds.json
+outputs/latest_labels.json
