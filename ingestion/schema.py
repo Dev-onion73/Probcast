@@ -4,25 +4,25 @@ from typing import List, Dict, Optional
 
 class SourceType(str, Enum):
     PROMETHEUS = "prometheus"
-    JOURNAL = "journal"
+    JOURNAL    = "journal"
     CLOUDWATCH = "cloudwatch"
-    SIEM = "siem"
+    SIEM       = "siem"
 
 class MetricType(str, Enum):
-    CPU_USAGE = "cpu_usage"
+    CPU_USAGE    = "cpu_usage"
     MEMORY_USAGE = "memory_usage"
     DISK_IO_READ = "disk_io_read"
-    DISK_IO_WRITE = "disk_io_write"
-    NETWORK_RX = "network_rx"
-    NETWORK_TX = "network_tx"
-    SERVICE_UP = "service_up"
-    PROBE_LATENCY = "probe_latency"
+    DISK_IO_WRITE= "disk_io_write"
+    NETWORK_RX   = "network_rx"
+    NETWORK_TX   = "network_tx"
+    SERVICE_UP   = "service_up"
+    PROBE_LATENCY= "probe_latency"
 
 class JournalLevel(str, Enum):
-    DEBUG = "DEBUG"
-    INFO = "INFO"
-    WARNING = "WARNING"
-    ERROR = "ERROR"
+    DEBUG    = "DEBUG"
+    INFO     = "INFO"
+    WARNING  = "WARNING"
+    ERROR    = "ERROR"
     CRITICAL = "CRITICAL"
 
 @dataclass
@@ -63,22 +63,21 @@ class EntityTelemetry:
     def has_both_streams(self) -> bool:
         return bool(self.resource_records) and bool(self.journal_records)
 
-    def resource_summary(self) -> Dict[str, Dict[str, float]]:
+    def resource_summary(self):
+        # Returns a dictionary with metrics as keys and their min, mean, max, std
+        from collections import defaultdict
         import numpy as np
-        ret = {}
-        by_metric = {}
-        for rec in self.resource_records:
-            by_metric.setdefault(rec.metric_type, []).append(rec.value)
-        for typ, vals in by_metric.items():
-            ret[typ] = {
-                "min": float(np.min(vals)),
-                "mean": float(np.mean(vals)),
-                "max": float(np.max(vals))
+        by_metric = defaultdict(list)
+        for r in self.resource_records:
+            by_metric[str(r.metric_type)].append(r.value)  # ensure string for consistent access
+        summary = {}
+        for k, v in by_metric.items():
+            arr = np.array(v)
+            summary[k] = {
+                "min": float(np.min(arr)),
+                "mean": float(np.mean(arr)),
+                "max": float(np.max(arr)),
+                "std": float(np.std(arr)),
+                "window": [float(x) for x in arr[-10:]]  # last 10 points as a window
             }
-        return ret
-
-    def journal_summary(self) -> Dict[str, int]:
-        d = {}
-        for rec in self.journal_records:
-            d[rec.level] = d.get(rec.level, 0) + 1
-        return d
+        return summary

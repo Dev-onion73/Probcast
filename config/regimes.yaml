@@ -1,0 +1,59 @@
+# Fixed regime metric curves for the mock sequencer
+regimes:
+  normal:
+    cpu_usage:        [0.30, 0.32, 0.33, 0.31, 0.29, 0.32]
+    memory_usage:     [0.42, 0.43, 0.44, 0.41, 0.40, 0.42]
+    disk_io_read:     [0.10, 0.11, 0.08, 0.09, 0.12, 0.09]
+    disk_io_write:    [0.07, 0.08, 0.09, 0.07, 0.06, 0.08]
+    network_rx:       [0.15, 0.13, 0.14, 0.16, 0.12, 0.13]
+    network_tx:       [0.11, 0.14, 0.13, 0.12, 0.13, 0.13]
+    service_up:       [1, 1, 1, 1, 1, 1]
+    probe_latency:    [0.20, 0.18, 0.21, 0.22, 0.18, 0.19]
+
+  cpu_overload_precursor:
+    cpu_usage:        [0.52, 0.55, 0.62, 0.67, 0.79, 0.82]
+    # ... fill out rest like above
+
+  cpu_overload:
+    cpu_usage:        [0.91, 0.92, 0.97, 0.96, 0.97, 0.95]
+    # ... etc
+
+  memory_exhaustion_precursor:
+    memory_usage:     [0.67, 0.71, 0.72, 0.75, 0.77, 0.80]
+    # ... fill out other metrics
+  
+  memory_exhaustion:
+    memory_usage:     [0.95, 0.93, 0.98, 0.97, 0.99, 0.95]
+    # ... etc
+
+  storage_failure_precursor:
+    disk_io_read:     [0.24, 0.29, 0.27, 0.32, 0.28, 0.26]
+    # ... etc
+  
+  storage_failure:
+    disk_io_read:     [0.95, 0.96, 0.99, 0.91, 0.94, 1.0]
+    # ... etc
+
+  network_downtime_precursor:
+    network_rx:       [0.09, 0.07, 0.06, 0.05, 0.04, 0.03]
+    # ... etc
+
+  network_downtime:
+    network_rx:       [0.03, 0.00, 0.00, 0.01, 0.00, 0.00]
+    # ... etc
+
+  service_crash_precursor:
+    service_up:       [1, 1, 1, 1, 1, 1]
+    # ... etc
+
+  service_crash:
+    service_up:       [1, 1, 1, 0, 0, 0]
+    # ... etc
+
+  dependency_timeout_precursor:
+    probe_latency:    [0.20, 0.26, 0.32, 0.41, 0.58, 0.79]
+    # ... etc
+
+  dependency_timeout:
+    probe_latency:    [0.85, 0.92, 0.94, 0.97, 1.0, 0.96]
+    # ... etc

@@ -1,0 +1,97 @@
+[
+  {
+    "entity_id": "payments-cpu-01",
+    "detected_labels": [
+      "dependency_timeout"
+    ]
+  },
+  {
+    "entity_id": "payments-cpu-02",
+    "detected_labels": [
+      "service_crash"
+    ]
+  },
+  {
+    "entity_id": "payments-net-01",
+    "detected_labels": [
+      "dependency_timeout"
+    ]
+  },
+  {
+    "entity_id": "payments-disk-01",
+    "detected_labels": [
+      "service_crash"
+    ]
+  },
+  {
+    "entity_id": "payments-normal-01",
+    "detected_labels": []
+  },
+  {
+    "entity_id": "auth-mem-01",
+    "detected_labels": [
+      "dependency_timeout",
+      "service_crash"
+    ]
+  },
+  {
+    "entity_id": "auth-mem-02",
+    "detected_labels": []
+  },
+  {
+    "entity_id": "auth-svc-01",
+    "detected_labels": [
+      "memory_exhaustion"
+    ]
+  },
+  {
+    "entity_id": "auth-normal-01",
+    "detected_labels": [
+      "service_crash"
+    ]
+  },
+  {
+    "entity_id": "analytics-disk-01",
+    "detected_labels": [
+      "memory_exhaustion"
+    ]
+  },
+  {
+    "entity_id": "analytics-dep-01",
+    "detected_labels": []
+  },
+  {
+    "entity_id": "analytics-cpu-01",
+    "detected_labels": [
+      "dependency_timeout",
+      "service_crash"
+    ]
+  },
+  {
+    "entity_id": "analytics-normal-01",
+    "detected_labels": []
+  },
+  {
+    "entity_id": "api-dep-01",
+    "detected_labels": [
+      "service_crash"
+    ]
+  },
+  {
+    "entity_id": "api-svc-01",
+    "detected_labels": [
+      "dependency_timeout",
+      "memory_exhaustion"
+    ]
+  },
+  {
+    "entity_id": "api-net-01",
+    "detected_labels": [
+      "cpu_overload"
+    ]
+  },
+  {
+    "entity_id": "api-normal-01",
+    "detected_labels": []
+  }
+]

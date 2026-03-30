@@ -1,132 +1,218 @@
 connectors:
-  - id: mock_prometheus
-    url: http://localhost:8001
-    source_type: prometheus
+  - id: combined_mock
+    url: http://localhost:8101
+    source_type: mock
     entities:
-      - id: payments-prod-01
+
+      # -- SUBNET: payments --
+      - id: payments-cpu-01
         metadata:
-          host: payments-prod-01
+          host: payments-cpu-01
           subnet: subnet-payments
           environment: production
           org: acme-corp
         config:
-          baseline_cpu: 0.35
-          baseline_memory: 0.50
-          failure_class: network_downtime
-          failure_start_offset: 10
-          precursor_window: 20
+          baseline_cpu: 0.34
+          baseline_memory: 0.47
+          failure_class: cpu_overload
+          failure_start_offset: 10      # 10 seconds
+          precursor_window: 10          # 10 seconds
 
-      - id: payments-prod-02
+      - id: payments-cpu-02
         metadata:
-          host: payments-prod-02
+          host: payments-cpu-02
+          subnet: subnet-payments
+          environment: production
+          org: acme-corp
+        config:
+          baseline_cpu: 0.33
+          baseline_memory: 0.41
+          failure_class: cpu_overload
+          failure_start_offset: 13
+          precursor_window: 10
+
+      - id: payments-net-01
+        metadata:
+          host: payments-net-01
+          subnet: subnet-payments
+          environment: production
+          org: acme-corp
+        config:
+          baseline_cpu: 0.29
+          baseline_memory: 0.31
+          failure_class: network_downtime
+          failure_start_offset: 12
+          precursor_window: 10
+
+      - id: payments-disk-01
+        metadata:
+          host: payments-disk-01
           subnet: subnet-payments
           environment: production
           org: acme-corp
         config:
           baseline_cpu: 0.28
           baseline_memory: 0.42
-          failure_class: dependency_timeout
-          failure_start_offset: 15
-          precursor_window: 25
+          failure_class: storage_failure
+          failure_start_offset: 14
+          precursor_window: 10
 
-      - id: auth-prod-01
+      - id: payments-normal-01
         metadata:
-          host: auth-prod-01
+          host: payments-normal-01
+          subnet: subnet-payments
+          environment: production
+          org: acme-corp
+        config:
+          baseline_cpu: 0.26
+          baseline_memory: 0.41
+
+      # -- SUBNET: auth --
+      - id: auth-mem-01
+        metadata:
+          host: auth-mem-01
           subnet: subnet-auth
           environment: production
           org: acme-corp
         config:
-          baseline_cpu: 0.40
-          baseline_memory: 0.60
+          baseline_cpu: 0.19
+          baseline_memory: 0.62
           failure_class: memory_exhaustion
-          failure_start_offset: 30
-          precursor_window: 35
+          failure_start_offset: 11
+          precursor_window: 10
 
-      - id: auth-prod-02
+      - id: auth-mem-02
         metadata:
-          host: auth-prod-02
+          host: auth-mem-02
+          subnet: subnet-auth
+          environment: production
+          org: acme-corp
+        config:
+          baseline_cpu: 0.21
+          baseline_memory: 0.65
+          failure_class: memory_exhaustion
+          failure_start_offset: 15
+          precursor_window: 10
+
+      - id: auth-svc-01
+        metadata:
+          host: auth-svc-01
+          subnet: subnet-auth
+          environment: production
+          org: acme-corp
+        config:
+          baseline_cpu: 0.23
+          baseline_memory: 0.19
+          failure_class: service_crash
+          failure_start_offset: 13
+          precursor_window: 10
+
+      - id: auth-normal-01
+        metadata:
+          host: auth-normal-01
           subnet: subnet-auth
           environment: production
           org: acme-corp
         config:
           baseline_cpu: 0.22
-          baseline_memory: 0.38
-          failure_class: service_crash
-          failure_start_offset: 5
-          precursor_window: 10
+          baseline_memory: 0.40
 
-      - id: session-prod-01
+      # -- SUBNET: analytics --
+      - id: analytics-disk-01
         metadata:
-          host: session-prod-01
-          subnet: subnet-auth
+          host: analytics-disk-01
+          subnet: subnet-analytics
           environment: production
           org: acme-corp
         config:
-          baseline_cpu: 0.28
-          baseline_memory: 0.42
-          failure_class: cpu_overload
-          failure_start_offset: 10
-          precursor_window: 15
-
-  - id: mock_journal
-    url: http://localhost:8002
-    source_type: journal
-    entities:
-      - id: payments-prod-01
-        metadata:
-          host: payments-prod-01
-          subnet: subnet-payments
-          environment: production
-          org: acme-corp
-        config:
-          failure_class: network_downtime
-          failure_start_offset: 10
-          precursor_window: 20
-
-      - id: payments-prod-02
-        metadata:
-          host: payments-prod-02
-          subnet: subnet-payments
-          environment: production
-          org: acme-corp
-        config:
-          failure_class: dependency_timeout
-          failure_start_offset: 15
-          precursor_window: 25
-
-      - id: auth-prod-01
-        metadata:
-          host: auth-prod-01
-          subnet: subnet-auth
-          environment: production
-          org: acme-corp
-        config:
+          baseline_cpu: 0.27
+          baseline_memory: 0.37
           failure_class: storage_failure
-          failure_start_offset: 30
-          precursor_window: 35
-
-      - id: auth-prod-02
-        metadata:
-          host: auth-prod-02
-          subnet: subnet-auth
-          environment: production
-          org: acme-corp
-        config:
-          failure_class: service_crash
-          failure_start_offset: 5
+          failure_start_offset: 12
           precursor_window: 10
-      
-      - id: session-prod-01
+
+      - id: analytics-dep-01
         metadata:
-          host: session-prod-01
-          subnet: subnet-auth
+          host: analytics-dep-01
+          subnet: subnet-analytics
           environment: production
           org: acme-corp
         config:
+          baseline_cpu: 0.25
+          baseline_memory: 0.44
+          failure_class: dependency_timeout
+          failure_start_offset: 14
+          precursor_window: 10
+
+      - id: analytics-cpu-01
+        metadata:
+          host: analytics-cpu-01
+          subnet: subnet-analytics
+          environment: production
+          org: acme-corp
+        config:
+          baseline_cpu: 0.39
+          baseline_memory: 0.37
           failure_class: cpu_overload
-          failure_start_offset: 10
-          precursor_window: 15
-      
+          failure_start_offset: 15
+          precursor_window: 10
 
+      - id: analytics-normal-01
+        metadata:
+          host: analytics-normal-01
+          subnet: subnet-analytics
+          environment: production
+          org: acme-corp
+        config:
+          baseline_cpu: 0.25
+          baseline_memory: 0.35
 
-  # ... (keep any other connectors as needed for demo, unchanged)
+      # -- SUBNET: api --
+      - id: api-dep-01
+        metadata:
+          host: api-dep-01
+          subnet: subnet-api
+          environment: production
+          org: acme-corp
+        config:
+          baseline_cpu: 0.31
+          baseline_memory: 0.38
+          failure_class: dependency_timeout
+          failure_start_offset: 13
+          precursor_window: 10
+
+      - id: api-svc-01
+        metadata:
+          host: api-svc-01
+          subnet: subnet-api
+          environment: production
+          org: acme-corp
+        config:
+          baseline_cpu: 0.2
+          baseline_memory: 0.18
+          failure_class: service_crash
+          failure_start_offset: 14
+          precursor_window: 10
+
+      - id: api-net-01
+        metadata:
+          host: api-net-01
+          subnet: subnet-api
+          environment: production
+          org: acme-corp
+        config:
+          baseline_cpu: 0.2
+          baseline_memory: 0.23
+          failure_class: network_downtime
+          failure_start_offset: 12
+          precursor_window: 10
+
+      - id: api-normal-01
+        metadata:
+          host: api-normal-01
+          subnet: subnet-api
+          environment: production
+          org: acme-corp
+        config:
+          baseline_cpu: 0.18
+          baseline_memory: 0.22

@@ -1,38 +1,36 @@
 import numpy as np
-from typing import List, Dict
+from typing import Dict, List, Tuple
 
-def build_aggregation_matrix(hierarchy_tree: Dict) -> np.ndarray:
-    # Simple: leaves = all entity_ids, rows = groupings
-    # For demo: one subnet level only
+def build_aggregation_matrix(hierarchy_graph) -> Tuple[np.ndarray, List[str], List[str]]:
+    """
+    Accepts a HierarchyGraph with .as_tree(). Returns (S, entity_ids, subnets)
+    """
+    htree = hierarchy_graph.as_tree()
     subnets = []
-    entity_ids = set()
-    for env in hierarchy_tree["org"]["environments"].values():
-        for subnet, hosts in env.items():
-            subnets.append(subnet)
+    entity_ids = []
+    envs = htree.get("org", {}).get("environments", {})
+    for env_name, subnet_map in envs.items():
+        for subnet, hosts in subnet_map.items():
+            if subnet not in subnets:
+                subnets.append(subnet)
             for eid in hosts:
-                entity_ids.add(eid)
-    entity_ids = sorted(entity_ids)
+                if eid not in entity_ids:
+                    entity_ids.append(eid)
     matrix = np.zeros((len(subnets), len(entity_ids)), dtype=int)
-    for i, env in enumerate(hierarchy_tree["org"]["environments"].values()):
-        for j, (subnet, hosts) in enumerate(env.items()):
-            for eid in hosts:
-                k = entity_ids.index(eid)
-                matrix[j,k] = 1
+    for s_idx, subnet in enumerate(subnets):
+        for env_name, subnet_map in envs.items():
+            hosts = subnet_map.get(subnet, [])
+            for h in hosts:
+                col_idx = entity_ids.index(h)
+                matrix[s_idx, col_idx] = 1
     return matrix, entity_ids, subnets
 
-
-def print_aggregation_matrix(matrix: np.ndarray, entity_ids: list, subnets: list):
-    # Compute column widths for nice alignment
-    col_width = max([len(eid) for eid in entity_ids] + [8]) + 2
-    row_label_width = max([len(sub) for sub in subnets] + [12]) + 2
-
-    # Header
-    header = " " * row_label_width + "".join([eid.rjust(col_width) for eid in entity_ids])
+def print_aggregation_matrix(matrix: np.ndarray, entity_ids: List[str], subnets: List[str]):
+    pad = max([len(eid) for eid in entity_ids] + [12]) + 2
+    row_hdr = max([len(s) for s in subnets] + [12]) + 2
+    header = " " * row_hdr + "".join([eid.rjust(pad) for eid in entity_ids])
     print(header)
-    print("-" * len(header))
-
-    # Rows
+    print('-' * len(header))
     for row_idx, subnet in enumerate(subnets):
-        row = subnet.ljust(row_label_width)
-        row += "".join([str(int(val)).rjust(col_width) for val in matrix[row_idx]])
+        row = subnet.ljust(row_hdr) + "".join([str(int(val)).rjust(pad) for val in matrix[row_idx]])
         print(row)

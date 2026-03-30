@@ -1,0 +1,1277 @@
+[
+  {
+    "entity_id": "payments-cpu-01",
+    "host": "payments-cpu-01",
+    "subnet": "subnet-payments",
+    "delta_t_seconds": 7776000,
+    "probs_per_class": {
+      "normal": 0.13823825120925903,
+      "cpu_overload": 0.13899512588977814,
+      "memory_exhaustion": 0.14843903481960297,
+      "storage_failure": 0.14100290834903717,
+      "network_downtime": 0.1444718986749649,
+      "service_crash": 0.139933779835701,
+      "dependency_timeout": 0.1489189863204956
+    },
+    "raw_pathB": {
+      "normal": 0.13823825120925903,
+      "cpu_overload": 0.13899512588977814,
+      "memory_exhaustion": 0.14843903481960297,
+      "storage_failure": 0.14100290834903717,
+      "network_downtime": 0.1444718986749649,
+      "service_crash": 0.139933779835701,
+      "dependency_timeout": 0.1489189863204956
+    },
+    "forecast_horizon": "90d"
+  },
+  {
+    "entity_id": "payments-cpu-02",
+    "host": "payments-cpu-02",
+    "subnet": "subnet-payments",
+    "delta_t_seconds": 7776000,
+    "probs_per_class": {
+      "normal": 0.1409340351819992,
+      "cpu_overload": 0.14182354509830475,
+      "memory_exhaustion": 0.1439850777387619,
+      "storage_failure": 0.1435888558626175,
+      "network_downtime": 0.14255362749099731,
+      "service_crash": 0.13934746384620667,
+      "dependency_timeout": 0.14776740968227386
+    },
+    "raw_pathB": {
+      "normal": 0.1409340351819992,
+      "cpu_overload": 0.14182354509830475,
+      "memory_exhaustion": 0.1439850777387619,
+      "storage_failure": 0.1435888558626175,
+      "network_downtime": 0.14255362749099731,
+      "service_crash": 0.13934746384620667,
+      "dependency_timeout": 0.14776740968227386
+    },
+    "forecast_horizon": "90d"
+  },
+  {
+    "entity_id": "payments-net-01",
+    "host": "payments-net-01",
+    "subnet": "subnet-payments",
+    "delta_t_seconds": 7776000,
+    "probs_per_class": {
+      "normal": 0.13695752620697021,
+      "cpu_overload": 0.13761751353740692,
+      "memory_exhaustion": 0.14969395101070404,
+      "storage_failure": 0.14164705574512482,
+      "network_downtime": 0.145505890250206,
+      "service_crash": 0.14062201976776123,
+      "dependency_timeout": 0.14795607328414917
+    },
+    "raw_pathB": {
+      "normal": 0.13695752620697021,
+      "cpu_overload": 0.13761751353740692,
+      "memory_exhaustion": 0.14969395101070404,
+      "storage_failure": 0.14164705574512482,
+      "network_downtime": 0.145505890250206,
+      "service_crash": 0.14062201976776123,
+      "dependency_timeout": 0.14795607328414917
+    },
+    "forecast_horizon": "90d"
+  },
+  {
+    "entity_id": "payments-disk-01",
+    "host": "payments-disk-01",
+    "subnet": "subnet-payments",
+    "delta_t_seconds": 7776000,
+    "probs_per_class": {
+      "normal": 0.13448967039585114,
+      "cpu_overload": 0.13404519855976105,
+      "memory_exhaustion": 0.15279078483581543,
+      "storage_failure": 0.13979043066501617,
+      "network_downtime": 0.14620402455329895,
+      "service_crash": 0.14014677703380585,
+      "dependency_timeout": 0.152533158659935
+    },
+    "raw_pathB": {
+      "normal": 0.13448967039585114,
+      "cpu_overload": 0.13404519855976105,
+      "memory_exhaustion": 0.15279078483581543,
+      "storage_failure": 0.13979043066501617,
+      "network_downtime": 0.14620402455329895,
+      "service_crash": 0.14014677703380585,
+      "dependency_timeout": 0.152533158659935
+    },
+    "forecast_horizon": "90d"
+  },
+  {
+    "entity_id": "payments-normal-01",
+    "host": "payments-normal-01",
+    "subnet": "subnet-payments",
+    "delta_t_seconds": 7776000,
+    "probs_per_class": {
+      "normal": 0.13930684328079224,
+      "cpu_overload": 0.141045942902565,
+      "memory_exhaustion": 0.14597991108894348,
+      "storage_failure": 0.1421656310558319,
+      "network_downtime": 0.14386676251888275,
+      "service_crash": 0.14019672572612762,
+      "dependency_timeout": 0.147438183426857
+    },
+    "raw_pathB": {
+      "normal": 0.13930684328079224,
+      "cpu_overload": 0.141045942902565,
+      "memory_exhaustion": 0.14597991108894348,
+      "storage_failure": 0.1421656310558319,
+      "network_downtime": 0.14386676251888275,
+      "service_crash": 0.14019672572612762,
+      "dependency_timeout": 0.147438183426857
+    },
+    "forecast_horizon": "90d"
+  },
+  {
+    "entity_id": "auth-mem-01",
+    "host": "auth-mem-01",
+    "subnet": "subnet-auth",
+    "delta_t_seconds": 7776000,
+    "probs_per_class": {
+      "normal": 0.13597886264324188,
+      "cpu_overload": 0.14124387502670288,
+      "memory_exhaustion": 0.14468249678611755,
+      "storage_failure": 0.1454368680715561,
+      "network_downtime": 0.14452843368053436,
+      "service_crash": 0.13821548223495483,
+      "dependency_timeout": 0.14991395175457
+    },
+    "raw_pathB": {
+      "normal": 0.13597886264324188,
+      "cpu_overload": 0.14124387502670288,
+      "memory_exhaustion": 0.14468249678611755,
+      "storage_failure": 0.1454368680715561,
+      "network_downtime": 0.14452843368053436,
+      "service_crash": 0.13821548223495483,
+      "dependency_timeout": 0.14991395175457
+    },
+    "forecast_horizon": "90d"
+  },
+  {
+    "entity_id": "auth-mem-02",
+    "host": "auth-mem-02",
+    "subnet": "subnet-auth",
+    "delta_t_seconds": 7776000,
+    "probs_per_class": {
+      "normal": 0.14149537682533264,
+      "cpu_overload": 0.14220868051052094,
+      "memory_exhaustion": 0.1444331407546997,
+      "storage_failure": 0.14316827058792114,
+      "network_downtime": 0.14306128025054932,
+      "service_crash": 0.13943816721439362,
+      "dependency_timeout": 0.14619511365890503
+    },
+    "raw_pathB": {
+      "normal": 0.14149537682533264,
+      "cpu_overload": 0.14220868051052094,
+      "memory_exhaustion": 0.1444331407546997,
+      "storage_failure": 0.14316827058792114,
+      "network_downtime": 0.14306128025054932,
+      "service_crash": 0.13943816721439362,
+      "dependency_timeout": 0.14619511365890503
+    },
+    "forecast_horizon": "90d"
+  },
+  {
+    "entity_id": "auth-svc-01",
+    "host": "auth-svc-01",
+    "subnet": "subnet-auth",
+    "delta_t_seconds": 7776000,
+    "probs_per_class": {
+      "normal": 0.14090999960899353,
+      "cpu_overload": 0.14417582750320435,
+      "memory_exhaustion": 0.14439444243907928,
+      "storage_failure": 0.1438683271408081,
+      "network_downtime": 0.14210669696331024,
+      "service_crash": 0.13931839168071747,
+      "dependency_timeout": 0.14522632956504822
+    },
+    "raw_pathB": {
+      "normal": 0.14090999960899353,
+      "cpu_overload": 0.14417582750320435,
+      "memory_exhaustion": 0.14439444243907928,
+      "storage_failure": 0.1438683271408081,
+      "network_downtime": 0.14210669696331024,
+      "service_crash": 0.13931839168071747,
+      "dependency_timeout": 0.14522632956504822
+    },
+    "forecast_horizon": "90d"
+  },
+  {
+    "entity_id": "auth-normal-01",
+    "host": "auth-normal-01",
+    "subnet": "subnet-auth",
+    "delta_t_seconds": 7776000,
+    "probs_per_class": {
+      "normal": 0.14276733994483948,
+      "cpu_overload": 0.14306743443012238,
+      "memory_exhaustion": 0.14467701315879822,
+      "storage_failure": 0.14330899715423584,
+      "network_downtime": 0.14138244092464447,
+      "service_crash": 0.1382025182247162,
+      "dependency_timeout": 0.1465943157672882
+    },
+    "raw_pathB": {
+      "normal": 0.14276733994483948,
+      "cpu_overload": 0.14306743443012238,
+      "memory_exhaustion": 0.14467701315879822,
+      "storage_failure": 0.14330899715423584,
+      "network_downtime": 0.14138244092464447,
+      "service_crash": 0.1382025182247162,
+      "dependency_timeout": 0.1465943157672882
+    },
+    "forecast_horizon": "90d"
+  },
+  {
+    "entity_id": "analytics-disk-01",
+    "host": "analytics-disk-01",
+    "subnet": "subnet-analytics",
+    "delta_t_seconds": 7776000,
+    "probs_per_class": {
+      "normal": 0.14090999960899353,
+      "cpu_overload": 0.14417582750320435,
+      "memory_exhaustion": 0.14439444243907928,
+      "storage_failure": 0.1438683271408081,
+      "network_downtime": 0.14210669696331024,
+      "service_crash": 0.13931839168071747,
+      "dependency_timeout": 0.14522632956504822
+    },
+    "raw_pathB": {
+      "normal": 0.14090999960899353,
+      "cpu_overload": 0.14417582750320435,
+      "memory_exhaustion": 0.14439444243907928,
+      "storage_failure": 0.1438683271408081,
+      "network_downtime": 0.14210669696331024,
+      "service_crash": 0.13931839168071747,
+      "dependency_timeout": 0.14522632956504822
+    },
+    "forecast_horizon": "90d"
+  },
+  {
+    "entity_id": "analytics-dep-01",
+    "host": "analytics-dep-01",
+    "subnet": "subnet-analytics",
+    "delta_t_seconds": 7776000,
+    "probs_per_class": {
+      "normal": 0.14387492835521698,
+      "cpu_overload": 0.14292287826538086,
+      "memory_exhaustion": 0.14741715788841248,
+      "storage_failure": 0.1437600553035736,
+      "network_downtime": 0.14093944430351257,
+      "service_crash": 0.13719578087329865,
+      "dependency_timeout": 0.14388982951641083
+    },
+    "raw_pathB": {
+      "normal": 0.14387492835521698,
+      "cpu_overload": 0.14292287826538086,
+      "memory_exhaustion": 0.14741715788841248,
+      "storage_failure": 0.1437600553035736,
+      "network_downtime": 0.14093944430351257,
+      "service_crash": 0.13719578087329865,
+      "dependency_timeout": 0.14388982951641083
+    },
+    "forecast_horizon": "90d"
+  },
+  {
+    "entity_id": "analytics-cpu-01",
+    "host": "analytics-cpu-01",
+    "subnet": "subnet-analytics",
+    "delta_t_seconds": 7776000,
+    "probs_per_class": {
+      "normal": 0.14176790416240692,
+      "cpu_overload": 0.14391131699085236,
+      "memory_exhaustion": 0.14234206080436707,
+      "storage_failure": 0.14312560856342316,
+      "network_downtime": 0.14256411790847778,
+      "service_crash": 0.14021749794483185,
+      "dependency_timeout": 0.14607149362564087
+    },
+    "raw_pathB": {
+      "normal": 0.14176790416240692,
+      "cpu_overload": 0.14391131699085236,
+      "memory_exhaustion": 0.14234206080436707,
+      "storage_failure": 0.14312560856342316,
+      "network_downtime": 0.14256411790847778,
+      "service_crash": 0.14021749794483185,
+      "dependency_timeout": 0.14607149362564087
+    },
+    "forecast_horizon": "90d"
+  },
+  {
+    "entity_id": "analytics-normal-01",
+    "host": "analytics-normal-01",
+    "subnet": "subnet-analytics",
+    "delta_t_seconds": 7776000,
+    "probs_per_class": {
+      "normal": 0.14090999960899353,
+      "cpu_overload": 0.14417582750320435,
+      "memory_exhaustion": 0.14439444243907928,
+      "storage_failure": 0.1438683271408081,
+      "network_downtime": 0.14210669696331024,
+      "service_crash": 0.13931839168071747,
+      "dependency_timeout": 0.14522632956504822
+    },
+    "raw_pathB": {
+      "normal": 0.14090999960899353,
+      "cpu_overload": 0.14417582750320435,
+      "memory_exhaustion": 0.14439444243907928,
+      "storage_failure": 0.1438683271408081,
+      "network_downtime": 0.14210669696331024,
+      "service_crash": 0.13931839168071747,
+      "dependency_timeout": 0.14522632956504822
+    },
+    "forecast_horizon": "90d"
+  },
+  {
+    "entity_id": "api-dep-01",
+    "host": "api-dep-01",
+    "subnet": "subnet-api",
+    "delta_t_seconds": 7776000,
+    "probs_per_class": {
+      "normal": 0.14146827161312103,
+      "cpu_overload": 0.14237113296985626,
+      "memory_exhaustion": 0.14428766071796417,
+      "storage_failure": 0.1431683748960495,
+      "network_downtime": 0.1430819183588028,
+      "service_crash": 0.13938750326633453,
+      "dependency_timeout": 0.1462351679801941
+    },
+    "raw_pathB": {
+      "normal": 0.14146827161312103,
+      "cpu_overload": 0.14237113296985626,
+      "memory_exhaustion": 0.14428766071796417,
+      "storage_failure": 0.1431683748960495,
+      "network_downtime": 0.1430819183588028,
+      "service_crash": 0.13938750326633453,
+      "dependency_timeout": 0.1462351679801941
+    },
+    "forecast_horizon": "90d"
+  },
+  {
+    "entity_id": "api-svc-01",
+    "host": "api-svc-01",
+    "subnet": "subnet-api",
+    "delta_t_seconds": 7776000,
+    "probs_per_class": {
+      "normal": 0.13686148822307587,
+      "cpu_overload": 0.14074012637138367,
+      "memory_exhaustion": 0.147794708609581,
+      "storage_failure": 0.14149613678455353,
+      "network_downtime": 0.14373457431793213,
+      "service_crash": 0.1402605026960373,
+      "dependency_timeout": 0.14911244809627533
+    },
+    "raw_pathB": {
+      "normal": 0.13686148822307587,
+      "cpu_overload": 0.14074012637138367,
+      "memory_exhaustion": 0.147794708609581,
+      "storage_failure": 0.14149613678455353,
+      "network_downtime": 0.14373457431793213,
+      "service_crash": 0.1402605026960373,
+      "dependency_timeout": 0.14911244809627533
+    },
+    "forecast_horizon": "90d"
+  },
+  {
+    "entity_id": "api-net-01",
+    "host": "api-net-01",
+    "subnet": "subnet-api",
+    "delta_t_seconds": 7776000,
+    "probs_per_class": {
+      "normal": 0.13756830990314484,
+      "cpu_overload": 0.14118900895118713,
+      "memory_exhaustion": 0.14446648955345154,
+      "storage_failure": 0.1442510187625885,
+      "network_downtime": 0.1434893012046814,
+      "service_crash": 0.13834446668624878,
+      "dependency_timeout": 0.15069140493869781
+    },
+    "raw_pathB": {
+      "normal": 0.13756830990314484,
+      "cpu_overload": 0.14118900895118713,
+      "memory_exhaustion": 0.14446648955345154,
+      "storage_failure": 0.1442510187625885,
+      "network_downtime": 0.1434893012046814,
+      "service_crash": 0.13834446668624878,
+      "dependency_timeout": 0.15069140493869781
+    },
+    "forecast_horizon": "90d"
+  },
+  {
+    "entity_id": "api-normal-01",
+    "host": "api-normal-01",
+    "subnet": "subnet-api",
+    "delta_t_seconds": 7776000,
+    "probs_per_class": {
+      "normal": 0.1379169225692749,
+      "cpu_overload": 0.1401730179786682,
+      "memory_exhaustion": 0.1490250825881958,
+      "storage_failure": 0.1408880352973938,
+      "network_downtime": 0.1433604657649994,
+      "service_crash": 0.13962142169475555,
+      "dependency_timeout": 0.14901499450206757
+    },
+    "raw_pathB": {
+      "normal": 0.1379169225692749,
+      "cpu_overload": 0.1401730179786682,
+      "memory_exhaustion": 0.1490250825881958,
+      "storage_failure": 0.1408880352973938,
+      "network_downtime": 0.1433604657649994,
+      "service_crash": 0.13962142169475555,
+      "dependency_timeout": 0.14901499450206757
+    },
+    "forecast_horizon": "90d"
+  },
+  {
+    "entity_id": "payments-cpu-01",
+    "host": "payments-cpu-01",
+    "subnet": "subnet-payments",
+    "delta_t_seconds": 15552000,
+    "probs_per_class": {
+      "normal": 0.13823825120925903,
+      "cpu_overload": 0.13899512588977814,
+      "memory_exhaustion": 0.14843903481960297,
+      "storage_failure": 0.14100290834903717,
+      "network_downtime": 0.1444718986749649,
+      "service_crash": 0.139933779835701,
+      "dependency_timeout": 0.1489189863204956
+    },
+    "raw_pathB": {
+      "normal": 0.13823825120925903,
+      "cpu_overload": 0.13899512588977814,
+      "memory_exhaustion": 0.14843903481960297,
+      "storage_failure": 0.14100290834903717,
+      "network_downtime": 0.1444718986749649,
+      "service_crash": 0.139933779835701,
+      "dependency_timeout": 0.1489189863204956
+    },
+    "forecast_horizon": "180d"
+  },
+  {
+    "entity_id": "payments-cpu-02",
+    "host": "payments-cpu-02",
+    "subnet": "subnet-payments",
+    "delta_t_seconds": 15552000,
+    "probs_per_class": {
+      "normal": 0.1409340351819992,
+      "cpu_overload": 0.14182354509830475,
+      "memory_exhaustion": 0.1439850777387619,
+      "storage_failure": 0.1435888558626175,
+      "network_downtime": 0.14255362749099731,
+      "service_crash": 0.13934746384620667,
+      "dependency_timeout": 0.14776740968227386
+    },
+    "raw_pathB": {
+      "normal": 0.1409340351819992,
+      "cpu_overload": 0.14182354509830475,
+      "memory_exhaustion": 0.1439850777387619,
+      "storage_failure": 0.1435888558626175,
+      "network_downtime": 0.14255362749099731,
+      "service_crash": 0.13934746384620667,
+      "dependency_timeout": 0.14776740968227386
+    },
+    "forecast_horizon": "180d"
+  },
+  {
+    "entity_id": "payments-net-01",
+    "host": "payments-net-01",
+    "subnet": "subnet-payments",
+    "delta_t_seconds": 15552000,
+    "probs_per_class": {
+      "normal": 0.13695752620697021,
+      "cpu_overload": 0.13761751353740692,
+      "memory_exhaustion": 0.14969395101070404,
+      "storage_failure": 0.14164705574512482,
+      "network_downtime": 0.145505890250206,
+      "service_crash": 0.14062201976776123,
+      "dependency_timeout": 0.14795607328414917
+    },
+    "raw_pathB": {
+      "normal": 0.13695752620697021,
+      "cpu_overload": 0.13761751353740692,
+      "memory_exhaustion": 0.14969395101070404,
+      "storage_failure": 0.14164705574512482,
+      "network_downtime": 0.145505890250206,
+      "service_crash": 0.14062201976776123,
+      "dependency_timeout": 0.14795607328414917
+    },
+    "forecast_horizon": "180d"
+  },
+  {
+    "entity_id": "payments-disk-01",
+    "host": "payments-disk-01",
+    "subnet": "subnet-payments",
+    "delta_t_seconds": 15552000,
+    "probs_per_class": {
+      "normal": 0.13448967039585114,
+      "cpu_overload": 0.13404519855976105,
+      "memory_exhaustion": 0.15279078483581543,
+      "storage_failure": 0.13979043066501617,
+      "network_downtime": 0.14620402455329895,
+      "service_crash": 0.14014677703380585,
+      "dependency_timeout": 0.152533158659935
+    },
+    "raw_pathB": {
+      "normal": 0.13448967039585114,
+      "cpu_overload": 0.13404519855976105,
+      "memory_exhaustion": 0.15279078483581543,
+      "storage_failure": 0.13979043066501617,
+      "network_downtime": 0.14620402455329895,
+      "service_crash": 0.14014677703380585,
+      "dependency_timeout": 0.152533158659935
+    },
+    "forecast_horizon": "180d"
+  },
+  {
+    "entity_id": "payments-normal-01",
+    "host": "payments-normal-01",
+    "subnet": "subnet-payments",
+    "delta_t_seconds": 15552000,
+    "probs_per_class": {
+      "normal": 0.13930684328079224,
+      "cpu_overload": 0.141045942902565,
+      "memory_exhaustion": 0.14597991108894348,
+      "storage_failure": 0.1421656310558319,
+      "network_downtime": 0.14386676251888275,
+      "service_crash": 0.14019672572612762,
+      "dependency_timeout": 0.147438183426857
+    },
+    "raw_pathB": {
+      "normal": 0.13930684328079224,
+      "cpu_overload": 0.141045942902565,
+      "memory_exhaustion": 0.14597991108894348,
+      "storage_failure": 0.1421656310558319,
+      "network_downtime": 0.14386676251888275,
+      "service_crash": 0.14019672572612762,
+      "dependency_timeout": 0.147438183426857
+    },
+    "forecast_horizon": "180d"
+  },
+  {
+    "entity_id": "auth-mem-01",
+    "host": "auth-mem-01",
+    "subnet": "subnet-auth",
+    "delta_t_seconds": 15552000,
+    "probs_per_class": {
+      "normal": 0.13597886264324188,
+      "cpu_overload": 0.14124387502670288,
+      "memory_exhaustion": 0.14468249678611755,
+      "storage_failure": 0.1454368680715561,
+      "network_downtime": 0.14452843368053436,
+      "service_crash": 0.13821548223495483,
+      "dependency_timeout": 0.14991395175457
+    },
+    "raw_pathB": {
+      "normal": 0.13597886264324188,
+      "cpu_overload": 0.14124387502670288,
+      "memory_exhaustion": 0.14468249678611755,
+      "storage_failure": 0.1454368680715561,
+      "network_downtime": 0.14452843368053436,
+      "service_crash": 0.13821548223495483,
+      "dependency_timeout": 0.14991395175457
+    },
+    "forecast_horizon": "180d"
+  },
+  {
+    "entity_id": "auth-mem-02",
+    "host": "auth-mem-02",
+    "subnet": "subnet-auth",
+    "delta_t_seconds": 15552000,
+    "probs_per_class": {
+      "normal": 0.14149537682533264,
+      "cpu_overload": 0.14220868051052094,
+      "memory_exhaustion": 0.1444331407546997,
+      "storage_failure": 0.14316827058792114,
+      "network_downtime": 0.14306128025054932,
+      "service_crash": 0.13943816721439362,
+      "dependency_timeout": 0.14619511365890503
+    },
+    "raw_pathB": {
+      "normal": 0.14149537682533264,
+      "cpu_overload": 0.14220868051052094,
+      "memory_exhaustion": 0.1444331407546997,
+      "storage_failure": 0.14316827058792114,
+      "network_downtime": 0.14306128025054932,
+      "service_crash": 0.13943816721439362,
+      "dependency_timeout": 0.14619511365890503
+    },
+    "forecast_horizon": "180d"
+  },
+  {
+    "entity_id": "auth-svc-01",
+    "host": "auth-svc-01",
+    "subnet": "subnet-auth",
+    "delta_t_seconds": 15552000,
+    "probs_per_class": {
+      "normal": 0.14090999960899353,
+      "cpu_overload": 0.14417582750320435,
+      "memory_exhaustion": 0.14439444243907928,
+      "storage_failure": 0.1438683271408081,
+      "network_downtime": 0.14210669696331024,
+      "service_crash": 0.13931839168071747,
+      "dependency_timeout": 0.14522632956504822
+    },
+    "raw_pathB": {
+      "normal": 0.14090999960899353,
+      "cpu_overload": 0.14417582750320435,
+      "memory_exhaustion": 0.14439444243907928,
+      "storage_failure": 0.1438683271408081,
+      "network_downtime": 0.14210669696331024,
+      "service_crash": 0.13931839168071747,
+      "dependency_timeout": 0.14522632956504822
+    },
+    "forecast_horizon": "180d"
+  },
+  {
+    "entity_id": "auth-normal-01",
+    "host": "auth-normal-01",
+    "subnet": "subnet-auth",
+    "delta_t_seconds": 15552000,
+    "probs_per_class": {
+      "normal": 0.14276733994483948,
+      "cpu_overload": 0.14306743443012238,
+      "memory_exhaustion": 0.14467701315879822,
+      "storage_failure": 0.14330899715423584,
+      "network_downtime": 0.14138244092464447,
+      "service_crash": 0.1382025182247162,
+      "dependency_timeout": 0.1465943157672882
+    },
+    "raw_pathB": {
+      "normal": 0.14276733994483948,
+      "cpu_overload": 0.14306743443012238,
+      "memory_exhaustion": 0.14467701315879822,
+      "storage_failure": 0.14330899715423584,
+      "network_downtime": 0.14138244092464447,
+      "service_crash": 0.1382025182247162,
+      "dependency_timeout": 0.1465943157672882
+    },
+    "forecast_horizon": "180d"
+  },
+  {
+    "entity_id": "analytics-disk-01",
+    "host": "analytics-disk-01",
+    "subnet": "subnet-analytics",
+    "delta_t_seconds": 15552000,
+    "probs_per_class": {
+      "normal": 0.14090999960899353,
+      "cpu_overload": 0.14417582750320435,
+      "memory_exhaustion": 0.14439444243907928,
+      "storage_failure": 0.1438683271408081,
+      "network_downtime": 0.14210669696331024,
+      "service_crash": 0.13931839168071747,
+      "dependency_timeout": 0.14522632956504822
+    },
+    "raw_pathB": {
+      "normal": 0.14090999960899353,
+      "cpu_overload": 0.14417582750320435,
+      "memory_exhaustion": 0.14439444243907928,
+      "storage_failure": 0.1438683271408081,
+      "network_downtime": 0.14210669696331024,
+      "service_crash": 0.13931839168071747,
+      "dependency_timeout": 0.14522632956504822
+    },
+    "forecast_horizon": "180d"
+  },
+  {
+    "entity_id": "analytics-dep-01",
+    "host": "analytics-dep-01",
+    "subnet": "subnet-analytics",
+    "delta_t_seconds": 15552000,
+    "probs_per_class": {
+      "normal": 0.14387492835521698,
+      "cpu_overload": 0.14292287826538086,
+      "memory_exhaustion": 0.14741715788841248,
+      "storage_failure": 0.1437600553035736,
+      "network_downtime": 0.14093944430351257,
+      "service_crash": 0.13719578087329865,
+      "dependency_timeout": 0.14388982951641083
+    },
+    "raw_pathB": {
+      "normal": 0.14387492835521698,
+      "cpu_overload": 0.14292287826538086,
+      "memory_exhaustion": 0.14741715788841248,
+      "storage_failure": 0.1437600553035736,
+      "network_downtime": 0.14093944430351257,
+      "service_crash": 0.13719578087329865,
+      "dependency_timeout": 0.14388982951641083
+    },
+    "forecast_horizon": "180d"
+  },
+  {
+    "entity_id": "analytics-cpu-01",
+    "host": "analytics-cpu-01",
+    "subnet": "subnet-analytics",
+    "delta_t_seconds": 15552000,
+    "probs_per_class": {
+      "normal": 0.14176790416240692,
+      "cpu_overload": 0.14391131699085236,
+      "memory_exhaustion": 0.14234206080436707,
+      "storage_failure": 0.14312560856342316,
+      "network_downtime": 0.14256411790847778,
+      "service_crash": 0.14021749794483185,
+      "dependency_timeout": 0.14607149362564087
+    },
+    "raw_pathB": {
+      "normal": 0.14176790416240692,
+      "cpu_overload": 0.14391131699085236,
+      "memory_exhaustion": 0.14234206080436707,
+      "storage_failure": 0.14312560856342316,
+      "network_downtime": 0.14256411790847778,
+      "service_crash": 0.14021749794483185,
+      "dependency_timeout": 0.14607149362564087
+    },
+    "forecast_horizon": "180d"
+  },
+  {
+    "entity_id": "analytics-normal-01",
+    "host": "analytics-normal-01",
+    "subnet": "subnet-analytics",
+    "delta_t_seconds": 15552000,
+    "probs_per_class": {
+      "normal": 0.14090999960899353,
+      "cpu_overload": 0.14417582750320435,
+      "memory_exhaustion": 0.14439444243907928,
+      "storage_failure": 0.1438683271408081,
+      "network_downtime": 0.14210669696331024,
+      "service_crash": 0.13931839168071747,
+      "dependency_timeout": 0.14522632956504822
+    },
+    "raw_pathB": {
+      "normal": 0.14090999960899353,
+      "cpu_overload": 0.14417582750320435,
+      "memory_exhaustion": 0.14439444243907928,
+      "storage_failure": 0.1438683271408081,
+      "network_downtime": 0.14210669696331024,
+      "service_crash": 0.13931839168071747,
+      "dependency_timeout": 0.14522632956504822
+    },
+    "forecast_horizon": "180d"
+  },
+  {
+    "entity_id": "api-dep-01",
+    "host": "api-dep-01",
+    "subnet": "subnet-api",
+    "delta_t_seconds": 15552000,
+    "probs_per_class": {
+      "normal": 0.14146827161312103,
+      "cpu_overload": 0.14237113296985626,
+      "memory_exhaustion": 0.14428766071796417,
+      "storage_failure": 0.1431683748960495,
+      "network_downtime": 0.1430819183588028,
+      "service_crash": 0.13938750326633453,
+      "dependency_timeout": 0.1462351679801941
+    },
+    "raw_pathB": {
+      "normal": 0.14146827161312103,
+      "cpu_overload": 0.14237113296985626,
+      "memory_exhaustion": 0.14428766071796417,
+      "storage_failure": 0.1431683748960495,
+      "network_downtime": 0.1430819183588028,
+      "service_crash": 0.13938750326633453,
+      "dependency_timeout": 0.1462351679801941
+    },
+    "forecast_horizon": "180d"
+  },
+  {
+    "entity_id": "api-svc-01",
+    "host": "api-svc-01",
+    "subnet": "subnet-api",
+    "delta_t_seconds": 15552000,
+    "probs_per_class": {
+      "normal": 0.13686148822307587,
+      "cpu_overload": 0.14074012637138367,
+      "memory_exhaustion": 0.147794708609581,
+      "storage_failure": 0.14149613678455353,
+      "network_downtime": 0.14373457431793213,
+      "service_crash": 0.1402605026960373,
+      "dependency_timeout": 0.14911244809627533
+    },
+    "raw_pathB": {
+      "normal": 0.13686148822307587,
+      "cpu_overload": 0.14074012637138367,
+      "memory_exhaustion": 0.147794708609581,
+      "storage_failure": 0.14149613678455353,
+      "network_downtime": 0.14373457431793213,
+      "service_crash": 0.1402605026960373,
+      "dependency_timeout": 0.14911244809627533
+    },
+    "forecast_horizon": "180d"
+  },
+  {
+    "entity_id": "api-net-01",
+    "host": "api-net-01",
+    "subnet": "subnet-api",
+    "delta_t_seconds": 15552000,
+    "probs_per_class": {
+      "normal": 0.13756830990314484,
+      "cpu_overload": 0.14118900895118713,
+      "memory_exhaustion": 0.14446648955345154,
+      "storage_failure": 0.1442510187625885,
+      "network_downtime": 0.1434893012046814,
+      "service_crash": 0.13834446668624878,
+      "dependency_timeout": 0.15069140493869781
+    },
+    "raw_pathB": {
+      "normal": 0.13756830990314484,
+      "cpu_overload": 0.14118900895118713,
+      "memory_exhaustion": 0.14446648955345154,
+      "storage_failure": 0.1442510187625885,
+      "network_downtime": 0.1434893012046814,
+      "service_crash": 0.13834446668624878,
+      "dependency_timeout": 0.15069140493869781
+    },
+    "forecast_horizon": "180d"
+  },
+  {
+    "entity_id": "api-normal-01",
+    "host": "api-normal-01",
+    "subnet": "subnet-api",
+    "delta_t_seconds": 15552000,
+    "probs_per_class": {
+      "normal": 0.1379169225692749,
+      "cpu_overload": 0.1401730179786682,
+      "memory_exhaustion": 0.1490250825881958,
+      "storage_failure": 0.1408880352973938,
+      "network_downtime": 0.1433604657649994,
+      "service_crash": 0.13962142169475555,
+      "dependency_timeout": 0.14901499450206757
+    },
+    "raw_pathB": {
+      "normal": 0.1379169225692749,
+      "cpu_overload": 0.1401730179786682,
+      "memory_exhaustion": 0.1490250825881958,
+      "storage_failure": 0.1408880352973938,
+      "network_downtime": 0.1433604657649994,
+      "service_crash": 0.13962142169475555,
+      "dependency_timeout": 0.14901499450206757
+    },
+    "forecast_horizon": "180d"
+  },
+  {
+    "entity_id": "payments-cpu-01",
+    "host": "payments-cpu-01",
+    "subnet": "subnet-payments",
+    "delta_t_seconds": 31536000,
+    "probs_per_class": {
+      "normal": 0.13823825120925903,
+      "cpu_overload": 0.13899512588977814,
+      "memory_exhaustion": 0.14843903481960297,
+      "storage_failure": 0.14100290834903717,
+      "network_downtime": 0.1444718986749649,
+      "service_crash": 0.139933779835701,
+      "dependency_timeout": 0.1489189863204956
+    },
+    "raw_pathB": {
+      "normal": 0.13823825120925903,
+      "cpu_overload": 0.13899512588977814,
+      "memory_exhaustion": 0.14843903481960297,
+      "storage_failure": 0.14100290834903717,
+      "network_downtime": 0.1444718986749649,
+      "service_crash": 0.139933779835701,
+      "dependency_timeout": 0.1489189863204956
+    },
+    "forecast_horizon": "365d"
+  },
+  {
+    "entity_id": "payments-cpu-02",
+    "host": "payments-cpu-02",
+    "subnet": "subnet-payments",
+    "delta_t_seconds": 31536000,
+    "probs_per_class": {
+      "normal": 0.1409340351819992,
+      "cpu_overload": 0.14182354509830475,
+      "memory_exhaustion": 0.1439850777387619,
+      "storage_failure": 0.1435888558626175,
+      "network_downtime": 0.14255362749099731,
+      "service_crash": 0.13934746384620667,
+      "dependency_timeout": 0.14776740968227386
+    },
+    "raw_pathB": {
+      "normal": 0.1409340351819992,
+      "cpu_overload": 0.14182354509830475,
+      "memory_exhaustion": 0.1439850777387619,
+      "storage_failure": 0.1435888558626175,
+      "network_downtime": 0.14255362749099731,
+      "service_crash": 0.13934746384620667,
+      "dependency_timeout": 0.14776740968227386
+    },
+    "forecast_horizon": "365d"
+  },
+  {
+    "entity_id": "payments-net-01",
+    "host": "payments-net-01",
+    "subnet": "subnet-payments",
+    "delta_t_seconds": 31536000,
+    "probs_per_class": {
+      "normal": 0.13695752620697021,
+      "cpu_overload": 0.13761751353740692,
+      "memory_exhaustion": 0.14969395101070404,
+      "storage_failure": 0.14164705574512482,
+      "network_downtime": 0.145505890250206,
+      "service_crash": 0.14062201976776123,
+      "dependency_timeout": 0.14795607328414917
+    },
+    "raw_pathB": {
+      "normal": 0.13695752620697021,
+      "cpu_overload": 0.13761751353740692,
+      "memory_exhaustion": 0.14969395101070404,
+      "storage_failure": 0.14164705574512482,
+      "network_downtime": 0.145505890250206,
+      "service_crash": 0.14062201976776123,
+      "dependency_timeout": 0.14795607328414917
+    },
+    "forecast_horizon": "365d"
+  },
+  {
+    "entity_id": "payments-disk-01",
+    "host": "payments-disk-01",
+    "subnet": "subnet-payments",
+    "delta_t_seconds": 31536000,
+    "probs_per_class": {
+      "normal": 0.13448967039585114,
+      "cpu_overload": 0.13404519855976105,
+      "memory_exhaustion": 0.15279078483581543,
+      "storage_failure": 0.13979043066501617,
+      "network_downtime": 0.14620402455329895,
+      "service_crash": 0.14014677703380585,
+      "dependency_timeout": 0.152533158659935
+    },
+    "raw_pathB": {
+      "normal": 0.13448967039585114,
+      "cpu_overload": 0.13404519855976105,
+      "memory_exhaustion": 0.15279078483581543,
+      "storage_failure": 0.13979043066501617,
+      "network_downtime": 0.14620402455329895,
+      "service_crash": 0.14014677703380585,
+      "dependency_timeout": 0.152533158659935
+    },
+    "forecast_horizon": "365d"
+  },
+  {
+    "entity_id": "payments-normal-01",
+    "host": "payments-normal-01",
+    "subnet": "subnet-payments",
+    "delta_t_seconds": 31536000,
+    "probs_per_class": {
+      "normal": 0.13930684328079224,
+      "cpu_overload": 0.141045942902565,
+      "memory_exhaustion": 0.14597991108894348,
+      "storage_failure": 0.1421656310558319,
+      "network_downtime": 0.14386676251888275,
+      "service_crash": 0.14019672572612762,
+      "dependency_timeout": 0.147438183426857
+    },
+    "raw_pathB": {
+      "normal": 0.13930684328079224,
+      "cpu_overload": 0.141045942902565,
+      "memory_exhaustion": 0.14597991108894348,
+      "storage_failure": 0.1421656310558319,
+      "network_downtime": 0.14386676251888275,
+      "service_crash": 0.14019672572612762,
+      "dependency_timeout": 0.147438183426857
+    },
+    "forecast_horizon": "365d"
+  },
+  {
+    "entity_id": "auth-mem-01",
+    "host": "auth-mem-01",
+    "subnet": "subnet-auth",
+    "delta_t_seconds": 31536000,
+    "probs_per_class": {
+      "normal": 0.13597886264324188,
+      "cpu_overload": 0.14124387502670288,
+      "memory_exhaustion": 0.14468249678611755,
+      "storage_failure": 0.1454368680715561,
+      "network_downtime": 0.14452843368053436,
+      "service_crash": 0.13821548223495483,
+      "dependency_timeout": 0.14991395175457
+    },
+    "raw_pathB": {
+      "normal": 0.13597886264324188,
+      "cpu_overload": 0.14124387502670288,
+      "memory_exhaustion": 0.14468249678611755,
+      "storage_failure": 0.1454368680715561,
+      "network_downtime": 0.14452843368053436,
+      "service_crash": 0.13821548223495483,
+      "dependency_timeout": 0.14991395175457
+    },
+    "forecast_horizon": "365d"
+  },
+  {
+    "entity_id": "auth-mem-02",
+    "host": "auth-mem-02",
+    "subnet": "subnet-auth",
+    "delta_t_seconds": 31536000,
+    "probs_per_class": {
+      "normal": 0.14149537682533264,
+      "cpu_overload": 0.14220868051052094,
+      "memory_exhaustion": 0.1444331407546997,
+      "storage_failure": 0.14316827058792114,
+      "network_downtime": 0.14306128025054932,
+      "service_crash": 0.13943816721439362,
+      "dependency_timeout": 0.14619511365890503
+    },
+    "raw_pathB": {
+      "normal": 0.14149537682533264,
+      "cpu_overload": 0.14220868051052094,
+      "memory_exhaustion": 0.1444331407546997,
+      "storage_failure": 0.14316827058792114,
+      "network_downtime": 0.14306128025054932,
+      "service_crash": 0.13943816721439362,
+      "dependency_timeout": 0.14619511365890503
+    },
+    "forecast_horizon": "365d"
+  },
+  {
+    "entity_id": "auth-svc-01",
+    "host": "auth-svc-01",
+    "subnet": "subnet-auth",
+    "delta_t_seconds": 31536000,
+    "probs_per_class": {
+      "normal": 0.14090999960899353,
+      "cpu_overload": 0.14417582750320435,
+      "memory_exhaustion": 0.14439444243907928,
+      "storage_failure": 0.1438683271408081,
+      "network_downtime": 0.14210669696331024,
+      "service_crash": 0.13931839168071747,
+      "dependency_timeout": 0.14522632956504822
+    },
+    "raw_pathB": {
+      "normal": 0.14090999960899353,
+      "cpu_overload": 0.14417582750320435,
+      "memory_exhaustion": 0.14439444243907928,
+      "storage_failure": 0.1438683271408081,
+      "network_downtime": 0.14210669696331024,
+      "service_crash": 0.13931839168071747,
+      "dependency_timeout": 0.14522632956504822
+    },
+    "forecast_horizon": "365d"
+  },
+  {
+    "entity_id": "auth-normal-01",
+    "host": "auth-normal-01",
+    "subnet": "subnet-auth",
+    "delta_t_seconds": 31536000,
+    "probs_per_class": {
+      "normal": 0.14276733994483948,
+      "cpu_overload": 0.14306743443012238,
+      "memory_exhaustion": 0.14467701315879822,
+      "storage_failure": 0.14330899715423584,
+      "network_downtime": 0.14138244092464447,
+      "service_crash": 0.1382025182247162,
+      "dependency_timeout": 0.1465943157672882
+    },
+    "raw_pathB": {
+      "normal": 0.14276733994483948,
+      "cpu_overload": 0.14306743443012238,
+      "memory_exhaustion": 0.14467701315879822,
+      "storage_failure": 0.14330899715423584,
+      "network_downtime": 0.14138244092464447,
+      "service_crash": 0.1382025182247162,
+      "dependency_timeout": 0.1465943157672882
+    },
+    "forecast_horizon": "365d"
+  },
+  {
+    "entity_id": "analytics-disk-01",
+    "host": "analytics-disk-01",
+    "subnet": "subnet-analytics",
+    "delta_t_seconds": 31536000,
+    "probs_per_class": {
+      "normal": 0.14090999960899353,
+      "cpu_overload": 0.14417582750320435,
+      "memory_exhaustion": 0.14439444243907928,
+      "storage_failure": 0.1438683271408081,
+      "network_downtime": 0.14210669696331024,
+      "service_crash": 0.13931839168071747,
+      "dependency_timeout": 0.14522632956504822
+    },
+    "raw_pathB": {
+      "normal": 0.14090999960899353,
+      "cpu_overload": 0.14417582750320435,
+      "memory_exhaustion": 0.14439444243907928,
+      "storage_failure": 0.1438683271408081,
+      "network_downtime": 0.14210669696331024,
+      "service_crash": 0.13931839168071747,
+      "dependency_timeout": 0.14522632956504822
+    },
+    "forecast_horizon": "365d"
+  },
+  {
+    "entity_id": "analytics-dep-01",
+    "host": "analytics-dep-01",
+    "subnet": "subnet-analytics",
+    "delta_t_seconds": 31536000,
+    "probs_per_class": {
+      "normal": 0.14387492835521698,
+      "cpu_overload": 0.14292287826538086,
+      "memory_exhaustion": 0.14741715788841248,
+      "storage_failure": 0.1437600553035736,
+      "network_downtime": 0.14093944430351257,
+      "service_crash": 0.13719578087329865,
+      "dependency_timeout": 0.14388982951641083
+    },
+    "raw_pathB": {
+      "normal": 0.14387492835521698,
+      "cpu_overload": 0.14292287826538086,
+      "memory_exhaustion": 0.14741715788841248,
+      "storage_failure": 0.1437600553035736,
+      "network_downtime": 0.14093944430351257,
+      "service_crash": 0.13719578087329865,
+      "dependency_timeout": 0.14388982951641083
+    },
+    "forecast_horizon": "365d"
+  },
+  {
+    "entity_id": "analytics-cpu-01",
+    "host": "analytics-cpu-01",
+    "subnet": "subnet-analytics",
+    "delta_t_seconds": 31536000,
+    "probs_per_class": {
+      "normal": 0.14176790416240692,
+      "cpu_overload": 0.14391131699085236,
+      "memory_exhaustion": 0.14234206080436707,
+      "storage_failure": 0.14312560856342316,
+      "network_downtime": 0.14256411790847778,
+      "service_crash": 0.14021749794483185,
+      "dependency_timeout": 0.14607149362564087
+    },
+    "raw_pathB": {
+      "normal": 0.14176790416240692,
+      "cpu_overload": 0.14391131699085236,
+      "memory_exhaustion": 0.14234206080436707,
+      "storage_failure": 0.14312560856342316,
+      "network_downtime": 0.14256411790847778,
+      "service_crash": 0.14021749794483185,
+      "dependency_timeout": 0.14607149362564087
+    },
+    "forecast_horizon": "365d"
+  },
+  {
+    "entity_id": "analytics-normal-01",
+    "host": "analytics-normal-01",
+    "subnet": "subnet-analytics",
+    "delta_t_seconds": 31536000,
+    "probs_per_class": {
+      "normal": 0.14090999960899353,
+      "cpu_overload": 0.14417582750320435,
+      "memory_exhaustion": 0.14439444243907928,
+      "storage_failure": 0.1438683271408081,
+      "network_downtime": 0.14210669696331024,
+      "service_crash": 0.13931839168071747,
+      "dependency_timeout": 0.14522632956504822
+    },
+    "raw_pathB": {
+      "normal": 0.14090999960899353,
+      "cpu_overload": 0.14417582750320435,
+      "memory_exhaustion": 0.14439444243907928,
+      "storage_failure": 0.1438683271408081,
+      "network_downtime": 0.14210669696331024,
+      "service_crash": 0.13931839168071747,
+      "dependency_timeout": 0.14522632956504822
+    },
+    "forecast_horizon": "365d"
+  },
+  {
+    "entity_id": "api-dep-01",
+    "host": "api-dep-01",
+    "subnet": "subnet-api",
+    "delta_t_seconds": 31536000,
+    "probs_per_class": {
+      "normal": 0.14146827161312103,
+      "cpu_overload": 0.14237113296985626,
+      "memory_exhaustion": 0.14428766071796417,
+      "storage_failure": 0.1431683748960495,
+      "network_downtime": 0.1430819183588028,
+      "service_crash": 0.13938750326633453,
+      "dependency_timeout": 0.1462351679801941
+    },
+    "raw_pathB": {
+      "normal": 0.14146827161312103,
+      "cpu_overload": 0.14237113296985626,
+      "memory_exhaustion": 0.14428766071796417,
+      "storage_failure": 0.1431683748960495,
+      "network_downtime": 0.1430819183588028,
+      "service_crash": 0.13938750326633453,
+      "dependency_timeout": 0.1462351679801941
+    },
+    "forecast_horizon": "365d"
+  },
+  {
+    "entity_id": "api-svc-01",
+    "host": "api-svc-01",
+    "subnet": "subnet-api",
+    "delta_t_seconds": 31536000,
+    "probs_per_class": {
+      "normal": 0.13686148822307587,
+      "cpu_overload": 0.14074012637138367,
+      "memory_exhaustion": 0.147794708609581,
+      "storage_failure": 0.14149613678455353,
+      "network_downtime": 0.14373457431793213,
+      "service_crash": 0.1402605026960373,
+      "dependency_timeout": 0.14911244809627533
+    },
+    "raw_pathB": {
+      "normal": 0.13686148822307587,
+      "cpu_overload": 0.14074012637138367,
+      "memory_exhaustion": 0.147794708609581,
+      "storage_failure": 0.14149613678455353,
+      "network_downtime": 0.14373457431793213,
+      "service_crash": 0.1402605026960373,
+      "dependency_timeout": 0.14911244809627533
+    },
+    "forecast_horizon": "365d"
+  },
+  {
+    "entity_id": "api-net-01",
+    "host": "api-net-01",
+    "subnet": "subnet-api",
+    "delta_t_seconds": 31536000,
+    "probs_per_class": {
+      "normal": 0.13756830990314484,
+      "cpu_overload": 0.14118900895118713,
+      "memory_exhaustion": 0.14446648955345154,
+      "storage_failure": 0.1442510187625885,
+      "network_downtime": 0.1434893012046814,
+      "service_crash": 0.13834446668624878,
+      "dependency_timeout": 0.15069140493869781
+    },
+    "raw_pathB": {
+      "normal": 0.13756830990314484,
+      "cpu_overload": 0.14118900895118713,
+      "memory_exhaustion": 0.14446648955345154,
+      "storage_failure": 0.1442510187625885,
+      "network_downtime": 0.1434893012046814,
+      "service_crash": 0.13834446668624878,
+      "dependency_timeout": 0.15069140493869781
+    },
+    "forecast_horizon": "365d"
+  },
+  {
+    "entity_id": "api-normal-01",
+    "host": "api-normal-01",
+    "subnet": "subnet-api",
+    "delta_t_seconds": 31536000,
+    "probs_per_class": {
+      "normal": 0.1379169225692749,
+      "cpu_overload": 0.1401730179786682,
+      "memory_exhaustion": 0.1490250825881958,
+      "storage_failure": 0.1408880352973938,
+      "network_downtime": 0.1433604657649994,
+      "service_crash": 0.13962142169475555,
+      "dependency_timeout": 0.14901499450206757
+    },
+    "raw_pathB": {
+      "normal": 0.1379169225692749,
+      "cpu_overload": 0.1401730179786682,
+      "memory_exhaustion": 0.1490250825881958,
+      "storage_failure": 0.1408880352973938,
+      "network_downtime": 0.1433604657649994,
+      "service_crash": 0.13962142169475555,
+      "dependency_timeout": 0.14901499450206757
+    },
+    "forecast_horizon": "365d"
+  }
+]

@@ -1,23 +1,36 @@
-from ingestion.schema import EntityTelemetry, EntityMeta
-from typing import List, Dict
+class HierarchyGraph:
+    """
+    Simple dynamic hierarchy graph for L1 demo.
+    """
+    def __init__(self):
+        self.nodes = {"host": [], "subnet": [], "environment": [], "org": []}
+        self.tree = {
+            "org": {
+                "environments": {}
+            }
+        }
 
-def infer_hierarchy(entities: List[EntityTelemetry]) -> Dict:
-    # Step 1 Extract prefix tokens and group by common tokens (simple logic)
-    groups = {}
-    for entity in entities:
-        toks = entity.entity_id.split("-")
-        group_key = "-".join(toks[:-1]) if len(toks) > 1 else entity.entity_id
-        groups.setdefault(group_key, []).append(entity)
-
-    # Step 2 Build hierarchy dict
-    hierarchy = {}
-    for group, members in groups.items():
-        hierarchy[group] = [e.entity_id for e in members]
-
-    # Step 3 Assign org/environment/subnet/host for each
-    tree = {"org": {"name": "demo", "environments": {}}}
-    for entity in entities:
-        env = entity.metadata.environment
-        subnet = entity.metadata.subnet
-        tree["org"]["environments"].setdefault(env, {}).setdefault(subnet, []).append(entity.entity_id)
-    return tree
+    def add_entity(self, meta):
+        # meta: either dict or object with .host, .subnet, .environment, .org
+        h = meta.get("host") if isinstance(meta, dict) else meta.host
+        s = meta.get("subnet") if isinstance(meta, dict) else meta.subnet
+        e = meta.get("environment") if isinstance(meta, dict) else meta.environment
+        o = meta.get("org") if isinstance(meta, dict) else meta.org
+        self.nodes["host"].append(h)
+        self.nodes["subnet"].append(s)
+        self.nodes["environment"].append(e)
+        self.nodes["org"].append(o)
+        envs = self.tree["org"]["environments"]
+        if e not in envs:
+            envs[e] = {}
+        subnets = envs[e]
+        if s not in subnets:
+            subnets[s] = []
+        if h not in subnets[s]:
+            subnets[s].append(h)
+    def build_from_entities(self, all_telemetry):
+        for t in all_telemetry:
+            self.add_entity(getattr(t, 'metadata', t))
+        return self
+    def as_tree(self):
+        return self.tree

@@ -1,0 +1,138 @@
+{
+  "tree": {
+    "org": {
+      "acme-corp": {
+        "production": {
+          "subnet-payments": [
+            "payments-cpu-01",
+            "payments-cpu-02",
+            "payments-net-01",
+            "payments-disk-01",
+            "payments-normal-01"
+          ],
+          "subnet-auth": [
+            "auth-mem-01",
+            "auth-mem-02",
+            "auth-svc-01",
+            "auth-normal-01"
+          ],
+          "subnet-analytics": [
+            "analytics-disk-01",
+            "analytics-dep-01",
+            "analytics-cpu-01",
+            "analytics-normal-01"
+          ],
+          "subnet-api": [
+            "api-dep-01",
+            "api-svc-01",
+            "api-net-01",
+            "api-normal-01"
+          ]
+        }
+      }
+    }
+  },
+  "matrix": [
+    [
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1
+    ]
+  ],
+  "hosts": [
+    "payments-cpu-01",
+    "payments-cpu-02",
+    "payments-net-01",
+    "payments-disk-01",
+    "payments-normal-01",
+    "auth-mem-01",
+    "auth-mem-02",
+    "auth-svc-01",
+    "auth-normal-01",
+    "analytics-disk-01",
+    "analytics-dep-01",
+    "analytics-cpu-01",
+    "analytics-normal-01",
+    "api-dep-01",
+    "api-svc-01",
+    "api-net-01",
+    "api-normal-01"
+  ],
+  "subnets": [
+    "subnet-payments",
+    "subnet-auth",
+    "subnet-analytics",
+    "subnet-api"
+  ]
+}
